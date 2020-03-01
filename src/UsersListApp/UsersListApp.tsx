@@ -3,6 +3,7 @@ import styles from './UsersListApp.module.scss';
 
 import { SearchInput } from './SearchInput/SearchInput';
 import { IUser } from '../common';
+import { UsersList } from './UsersList/UsersList';
 
 export const UsersListApp: React.FC = () => {
   const [users, setUsers] = useState<IUser[] | null>(null);
@@ -28,17 +29,7 @@ export const UsersListApp: React.FC = () => {
             setSearchInput(event.currentTarget.value);
           }}
         />
-        {!users ? (
-          'Loading'
-        ) : (
-          <ul>
-            {users.map(
-              ({ id, name, username }: IUser): JSX.Element => {
-                return <li key={id}>{`${name} @${username}`}</li>;
-              }
-            )}
-          </ul>
-        )}
+        {!users ? 'Loading' : <UsersList users={users} />}
         <ul>{}</ul>
       </main>
     </div>
