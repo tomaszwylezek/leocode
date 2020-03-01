@@ -12,8 +12,12 @@ const fetchMock = fetch as FetchMock;
 describe('User list app', () => {
   it('should render title', () => {
     const { getByText } = render(<UsersListApp />);
-    const headerText = getByText(/Users list/i);
-    expect(headerText).toBeInTheDocument();
+    expect(getByText(/Users list/i)).toBeInTheDocument();
+  });
+
+  it('should render loading when fetching data', () => {
+    const { getByText } = render(<UsersListApp />);
+    expect(getByText(/loading/i)).toBeInTheDocument();
   });
 
   it('should render list', async () => {

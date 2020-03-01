@@ -1,8 +1,9 @@
 import React, { SyntheticEvent, useState, useEffect, useMemo } from 'react';
 import styles from './UsersListApp.module.scss';
 
-import { SearchInput } from './SearchInput/SearchInput';
 import { IUser } from '../common';
+
+import { SearchInput } from './SearchInput/SearchInput';
 import { UsersList } from './UsersList/UsersList';
 
 export const UsersListApp: React.FC = () => {
