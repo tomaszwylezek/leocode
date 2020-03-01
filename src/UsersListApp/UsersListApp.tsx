@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState, useEffect } from 'react';
+import React, { SyntheticEvent, useState, useEffect, useMemo } from 'react';
 import styles from './UsersListApp.module.scss';
 
 import { SearchInput } from './SearchInput/SearchInput';
@@ -18,6 +18,12 @@ export const UsersListApp: React.FC = () => {
     })();
   }, []);
 
+  const filteredUsers = useMemo(() => {
+    return users?.filter(user => {
+      return user.name.toLowerCase().includes(searchInput.toLowerCase());
+    });
+  }, [users, searchInput]);
+
   return (
     <div className={styles.usersList}>
       <header>
@@ -30,7 +36,7 @@ export const UsersListApp: React.FC = () => {
             setSearchInput(event.currentTarget.value);
           }}
         />
-        {!users ? 'Loading' : <UsersList users={users} />}
+        {!filteredUsers ? 'Loading' : <UsersList users={filteredUsers} />}
       </main>
     </div>
   );
