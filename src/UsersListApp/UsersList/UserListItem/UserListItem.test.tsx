@@ -19,6 +19,8 @@ describe('User list', () => {
 
   it('should render properly item', () => {
     const { queryByText } = render(<UserListItem {...props} />);
-    expect(queryByText('Leanne Graham @Bret')).toBeInTheDocument();
+    expect(queryByText('1.')).toBeInTheDocument();
+    expect(queryByText('Leanne Graham')).toBeInTheDocument();
+    expect(queryByText('@Bret')).toBeInTheDocument();
   });
 });

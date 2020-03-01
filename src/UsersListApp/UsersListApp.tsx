@@ -10,12 +10,20 @@ export const UsersListApp: React.FC = () => {
   const [searchInput, setSearchInput] = useState<string>('');
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
     (async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await response.json();
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users', { signal });
+        const data = await response.json();
 
-      setUsers(data);
+        setUsers(data);
+      } catch (e) {}
     })();
+
+    return function cleanup() {
+      abortController.abort();
+    };
   }, []);
 
   const filteredUsers = useMemo(() => {

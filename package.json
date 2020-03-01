@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^9.4.1"
+    "@testing-library/react": "^9.4.1",
+    "jest-fetch-mock": "^3.0.1"
   }
 }
