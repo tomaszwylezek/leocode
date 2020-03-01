@@ -1,10 +1,10 @@
 import React, { SyntheticEvent, useState, useEffect } from 'react';
-import styles from './UsersList.module.scss';
+import styles from './UsersListApp.module.scss';
 
 import { SearchInput } from './SearchInput/SearchInput';
 import { IUser } from '../common';
 
-export const UsersList: React.FC = () => {
+export const UsersListApp: React.FC = () => {
   const [users, setUsers] = useState<IUser[] | null>(null);
   const [searchInput, setSearchInput] = useState<string>('');
 
