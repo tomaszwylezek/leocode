@@ -11,7 +11,7 @@ export const UsersList: React.FC<IUsersListProps> = ({ users }) => {
     <ul>
       {users.map(
         ({ id, name, username }: IUser): JSX.Element => {
-          return <li key={id}>{`${name} @${username}`}</li>;
+          return <li key={id} data-testid={`user-item-${id}`}>{`${name} @${username}`}</li>;
         }
       )}
     </ul>

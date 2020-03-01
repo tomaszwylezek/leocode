@@ -17,6 +17,7 @@ export const UsersListApp: React.FC = () => {
       setUsers(data);
     })();
   }, []);
+
   return (
     <div className={styles.usersList}>
       <header>
@@ -30,7 +31,6 @@ export const UsersListApp: React.FC = () => {
           }}
         />
         {!users ? 'Loading' : <UsersList users={users} />}
-        <ul>{}</ul>
       </main>
     </div>
   );
