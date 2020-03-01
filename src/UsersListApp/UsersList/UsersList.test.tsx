@@ -36,9 +36,4 @@ describe('User list', () => {
     const items = queryAllByTestId(/user-item/i);
     expect(items.length).toBe(2);
   });
-
-  it('should render properly item', () => {
-    const { queryByText } = render(<UsersList {...props} />);
-    expect(queryByText('Leanne Graham @Bret')).toBeInTheDocument();
-  });
 });

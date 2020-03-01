@@ -2,6 +2,8 @@ import React from 'react';
 
 import { IUser } from '../../common';
 
+import { UserListItem } from './UserListItem/UserListItem';
+
 export interface IUsersListProps {
   users: IUser[];
 }
@@ -10,8 +12,8 @@ export const UsersList: React.FC<IUsersListProps> = ({ users }) => {
   return (
     <ul>
       {users.map(
-        ({ id, name, username }: IUser): JSX.Element => {
-          return <li key={id} data-testid={`user-item-${id}`}>{`${name} @${username}`}</li>;
+        (user: IUser): JSX.Element => {
+          return <UserListItem key={user.id} {...user} />;
         }
       )}
     </ul>
