@@ -19,7 +19,7 @@ describe('User list', () => {
         },
         {
           id: 2,
-          name: 'Ervin Howell',
+          name: 'Ervin  Howell',
           username: 'Antonette',
           email: 'Shanna@melissa.tv',
           address: {},
